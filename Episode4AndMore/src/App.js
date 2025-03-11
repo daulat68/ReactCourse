@@ -11,9 +11,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 //not using keys (not accaptable) <<<< index as key <<<<<<<<<<<<<<< unique id (best practice)
 
-const GroceryComponent = lazy(() => {
-    import ("./components/GroceryComponent")
-})
+const GroceryComponent = lazy(() => import("./components/GroceryComponent"));
+
 
 const AppLayout = () =>{
     return(
