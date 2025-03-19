@@ -13,7 +13,7 @@ class UserClass extends React.Component{
                 url: "empty",
             },
         }
-        console.log("Child Constructor")
+        // console.log("Child Constructor")
     }
 
     async componentDidMount() {
