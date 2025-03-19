@@ -23,9 +23,6 @@ const Body = () => {
         );
 
         const json = await data.json();
-
-        // console.log(json);
-        
         
         // OPTIONAL CHAINING
         const restaurants = json?.data?.cards?.find(

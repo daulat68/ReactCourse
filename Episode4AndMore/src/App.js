@@ -18,7 +18,7 @@ const GroceryComponent = lazy(() => import("./components/GroceryComponent"));
 console.log("AppLayout Rendering...");
 const AppLayout = () =>{
     console.log("AppLayout Rendering...");
-    const [userName, setUserName] = useState("Guest");
+    const [userName, setUserName] = useState();
 
     useEffect(() => {
         const data = {

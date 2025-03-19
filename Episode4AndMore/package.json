@@ -1,7 +1,10 @@
 {
+  "homepage": "https://your-daulat68.github.io/ReactCourse",
   "name": "episode4",
   "version": "1.0.0",
   "scripts": {
+    "predeploy": "parcel build index.html --public-url ./",
+    "deploy": "gh-pages -d dist",
     "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html"
@@ -10,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "parcel": "^2.13.3",
     "process": "^0.11.10"
   },
