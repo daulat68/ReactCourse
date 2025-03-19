@@ -34,16 +34,16 @@ Routing: React Router DOM
 
 Installation & Setup
 
-1️⃣ Clone the repository
+Clone the repository
 
 git clone <repo-url>
 cd restaurant-app
 
-2️⃣ Install dependencies
+Install dependencies
 
 npm install
 
-3️⃣ Start the development server
+Start the development server
 
 npm start
 
