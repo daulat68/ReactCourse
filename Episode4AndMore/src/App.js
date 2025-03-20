@@ -14,12 +14,8 @@ import UserContext from "./utils/UserContext";
 
 const GroceryComponent = lazy(() => import("./components/GroceryComponent"));
 
-
-console.log("AppLayout Rendering...");
 const AppLayout = () =>{
-    console.log("AppLayout Rendering...");
-    const [userName, setUserName] = useState();
-
+    const [userName, setUserName] = useState("");
     useEffect(() => {
         const data = {
             name: "Hello",
@@ -27,17 +23,15 @@ const AppLayout = () =>{
         setUserName(data.name)
     }, [])
    
-
     return(
-        <UserContext.Provider value={{loggedInUser: userName}}>
+        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
         <div className="app">
-            <Header/>
+            <Header/> 
             <Outlet />
         </div>
         </UserContext.Provider>
     );
 };
-console.log("AppLayout Rendering...");
 
 const appRouter = createBrowserRouter([
     {
