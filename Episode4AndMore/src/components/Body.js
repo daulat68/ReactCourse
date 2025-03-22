@@ -41,7 +41,6 @@ const Body = () => {
     );
 
     const { loggedInUser, setUserName } = useContext(UserContext);
-    console.log("User Context:", { loggedInUser, setUserName });
 
     // Conditional rendering 
     if(listOfRestaurants.length === 0){
