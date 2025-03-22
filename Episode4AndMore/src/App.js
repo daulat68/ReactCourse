@@ -18,7 +18,7 @@ const AppLayout = () =>{
     const [userName, setUserName] = useState("");
     useEffect(() => {
         const data = {
-            name: "Hello",
+            name: "Hell",
         };
         setUserName(data.name)
     }, [])
