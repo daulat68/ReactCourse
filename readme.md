@@ -22,7 +22,7 @@ This is a food ordering application built using **React** and **Parcel**. It fet
 ## Installation & Setup
 ### Clone the repository
 ```sh
-git clone <repo-url>
+git clone https://github.com/daulat68/ReactCourse.git
 cd restaurant-app
 ```
 
@@ -68,13 +68,7 @@ restaurant-app/
 ```sh
 npm start   # Starts the development server
 npm run build   # Creates a production build
-npm run serve   # Serves the production build
 ```
-
-## Future Enhancements
-- ✅ Implement Redux for better state management.
-- ✅ Add cart functionality.
-- ✅ Improve UI animations.
 
 ## Visit Site
 https://67df1c5dc5172ab8fc8ebb23--stellular-stardust-4472b8.netlify.app/
