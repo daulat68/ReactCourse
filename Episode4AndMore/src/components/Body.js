@@ -86,7 +86,7 @@ const Body = () => {
                     value={loggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
                 </div>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center gap-6">
                 {
                   filteredRestaurant.map((restaurant) => (<Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
                     {restaurant.info.promoted ? <RestaurantCardPromoted resData={restaurant} /> :

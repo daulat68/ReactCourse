@@ -5,39 +5,85 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
- const Header = () =>{
+const Header = () => {
+  const [btnNameReact, setBtnNameReact] = useState("Login");
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const [btnNameReact, setBtnNameReact]= useState("Login");
+  const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
-    const onlineStatus = useOnlineStatus();
+  return (
+    <>
+      {/* ✅ Fixed Header with Shadow */}
+      <header className="fixed top-0 left-0 w-full bg-pink-100 shadow-lg z-50">
+        <div className="flex justify-between items-center px-6 py-4">
+          {/* Logo */}
+          <div className="flex items-center">
+            <img alt="Logo" className="w-40 sm:w-48" src={LOGO_URL} />
+          </div>
 
-    const { loggedInUser } = useContext(UserContext);
+          {/* 🔹 Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
 
-    const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems);
-
-    return(
-        <div className="flex justify-between bg-pink-100 shadow-lg">    
-            <div className="logo-container">
-                <img alt="Logo" className="w-56" src={LOGO_URL}
-                />
-            </div>
-            <div className="flex items-center">
-                <ul className="flex p-4 m-4">
-                    <li className="px-4">Online Status: {onlineStatus? "✅":"❌"}</li>
-                    <li className="px-4"><Link to="/">Home</Link></li>
-                    <li className="px-4"><Link to="/about">About us</Link></li>
-                    <li className="px-4"><Link to="/contact">Contact us</Link></li>
-                    <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-                    <li className="px-4 font-bold text-xl"><Link to="/cart">Cart-({cartItems.length})</Link></li>
-                    <button className="login" onClick={() => {
-                        btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")
-                    }}>{btnNameReact}</button>
-                    <li className="px-4 font-bold">{loggedInUser}</li>
-                </ul>
-            </div>
+          {/* Navigation Links */}
+          <nav
+            className={`absolute md:relative top-16 left-0 md:top-auto md:left-auto bg-white md:bg-transparent w-full md:w-auto shadow-md md:shadow-none transition-transform duration-300 ${
+              menuOpen ? "block" : "hidden"
+            } md:flex md:items-center`}
+          >
+            <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0 text-lg font-medium text-gray-700">
+              <li className="hidden md:block">
+                Online Status: {onlineStatus ? "✅" : "❌"}
+              </li>
+              <li>
+                <Link to="/" className="hover:text-pink-500 transition-all">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-pink-500 transition-all">
+                  About us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-pink-500 transition-all">
+                  Contact us
+                </Link>
+              </li>
+              <li>
+                <Link to="/grocery" className="hover:text-pink-500 transition-all">
+                  Grocery
+                </Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/cart" className="hover:text-pink-500 transition-all">
+                  Cart ({cartItems.length})
+                </Link>
+              </li>
+              <button
+                className="px-6 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-800 transition-all"
+                onClick={() =>
+                  setBtnNameReact(btnNameReact === "Login" ? "Logout" : "Login")
+                }
+              >
+                {btnNameReact}
+              </button>
+              <li className="font-bold text-gray-800">{loggedInUser}</li>
+            </ul>
+          </nav>
         </div>
-    );
+      </header>
+
+      {/* ✅ Push Content Down to Avoid Overlap */}
+      <div className="pt-[180px] md:pt-[170px]"></div>
+    </>
+  );
 };
 
 export default Header;

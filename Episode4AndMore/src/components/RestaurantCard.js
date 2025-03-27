@@ -1,40 +1,55 @@
 import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
-const RestaurantCard = (props) => {
-    const {resData} = props;
-    const { loggedInUser } = useContext(UserContext)
 
-    const {cloudinaryImageId, 
-      name, 
-      avgRating,cuisines, 
-      costForTwo, 
-      deliveryTime}= resData?.info; 
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const { loggedInUser } = useContext(UserContext);
+
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla} = resData?.info;
+
+  return (
     
-    return(
-        <div className="m-4 p-4 w-[280px] rounded-lg bg-gray-50 hover:bg-gray-200">
-            <img 
-            className="rounded-lg"
-            alt="res-logo" src={CDN_URL + cloudinaryImageId}
-               />
-            <h3 className="font-bold py-3 text-lg">{name}</h3>
-            <h4>{cuisines.join(", ")}</h4> 
-            <h4>{avgRating}star</h4>
-            <h4>{costForTwo}</h4>
-            <h4>{deliveryTime}minutes</h4>
-            <h4>User : {loggedInUser} </h4>
+    <div className="relative m-6 p-6 w-[380px] h-[460px] rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col">
+      {/* Image Section */}
+      <div className="w-full h-56 overflow-hidden rounded-2xl">
+        <img 
+          className="w-full h-full object-cover"
+          alt="res-logo" 
+          src={CDN_URL + cloudinaryImageId} 
+        />
+      </div>
+
+      {/* Content Section (Flex Grow for Equal Height) */}
+      <div className="mt-4 flex-1 flex flex-col">
+        <h3 className="font-bold text-2xl text-gray-800">{name}</h3>
+
+        {/* Cuisine List with Ellipsis */}
+        <p className="text-md text-gray-600 mt-1 line-clamp-2">{cuisines.join(", ")}</p>
+
+        {/* Ratings and Cost Section */}
+        <div className="flex items-center gap-3 mt-3">
+          <span className="text-white bg-green-600 px-3 py-1 text-md rounded-lg">{avgRating} ★</span>
+          <span className="text-gray-700 text-md font-semibold">{costForTwo}</span>
         </div>
-    );
+
+        {/* Delivery Time */}
+        <p className="text-md text-gray-500 mt-2">⏳ {sla.slaString}</p>
+
+      </div>
+    </div>
+  );
 };
 
-
 export const withPromotedLabel = (props) => {
-    return ()=> (
-        <div>
-            <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Promoted</label>
-            <RestaurantCard {...props} />
-        </div>
-    )
-}
+  return () => (
+    <div className="relative">
+      <span className="absolute top-3 left-3 bg-black text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-md">
+        Promoted
+      </span>
+      <RestaurantCard {...props} />
+    </div>
+  );
+};
 
 export default RestaurantCard;
