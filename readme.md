@@ -7,7 +7,7 @@ This is a food ordering application built using **React** and **Parcel**. It fet
 - 📦 **Built with Parcel** for fast bundling.
 - 🔥 **Shimmer UI** for loading placeholders.
 - 🌐 **Online Status Indicator**.
-- 👤 **User Context API** and **Redux and ReduxToolkit** for global state management.
+- 👤 **User Context API, Redux and ReduxToolkit** for global state management.
 - 📍 **Dynamic Routing** using React Router.
 - 🍽️ **Fetch & Display Restaurant Menus** from an API.
 - 📌 **Higher-Order Component (HOC)** for promotional tags.
