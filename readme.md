@@ -11,19 +11,20 @@ This is a food ordering application built using **React** and **Parcel**. It fet
 - 📍 **Dynamic Routing** using React Router.
 - 🍽️ **Fetch & Display Restaurant Menus** from an API.
 - 📌 **Higher-Order Component (HOC)** for promotional tags.
-- 🛒 **Add to Cart Button (UI only)**.
+- 🛒 **Add to Cart Button**.
 
 ## Tech Stack
 - **Frontend:** React, Tailwind CSS
 - **Bundler:** Parcel
-- **State Management:** React Context API
+- **State Management:** React Context API and Redux
 - **Routing:** React Router DOM
 
 ## Installation & Setup
 ### Clone the repository
 ```sh
 git clone https://github.com/daulat68/ReactCourse.git
-cd restaurant-app
+cd ReactCourse
+cd Episode4AndMore
 ```
 
 ### Install dependencies
@@ -42,20 +43,30 @@ Parcel will start the dev server and hot-reload changes.
 restaurant-app/
 ├── src/
 │   ├── components/
+│   │   ├── About.js
+│   │   ├── Body.js
+│   │   ├── Cart.js
+│   │   ├── Contact.js
+│   │   ├── Error.js
+│   │   ├── GroceryComponent.js
 │   │   ├── Header.js
+│   │   ├── ItemList.js
 │   │   ├── RestaurantCard.js
+│   │   ├── RestaurantCategory.js
 │   │   ├── RestaurantMenu.js
 │   │   ├── Shimmer.js
-│   │   ├── Error.js
-│   │   ├── ItemList.js
-│   │   ├── RestaurantCategory.js
+│   │   ├── ShimmerMenu.js
+│   │   ├── User.js
 │   ├── utils/
 │   │   ├── constants.js
+│   │   ├── appStore.js
+│   │   ├── cartSlice.js
 │   │   ├── useOnlineStatus.js
 │   │   ├── useRestaurantMenu.js
 │   │   ├── UserContext.js
 │   ├── App.js
-│   ├── index.js
+├── index.css
+├── index.html
 ├── package.json
 ├── README.md
 ```
@@ -71,4 +82,4 @@ npm run build   # Creates a production build
 ```
 
 ## Visit Site
-https://67df1c5dc5172ab8fc8ebb23--stellular-stardust-4472b8.netlify.app/
+https://restaurantappdaulat.netlify.app/
