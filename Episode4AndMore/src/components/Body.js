@@ -52,12 +52,14 @@ const Body = () => {
     return(
         <div className="body">
             <div className="filter flex">
-                <div className=" m-4 p-4">
-                    <input type="text" className="border border-solid border-black" placeholder="Search" value={searchText} onChange={(e) => {
+                <div className="m-4 p-4">
+                    <input type="text" className="border border-black p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Search" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value)
                     }}/>
                     
-                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+                    <button className="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md 
+                            hover:bg-green-700 transition duration-300 ease-in-out 
+                            focus:outline-none focus:ring-2 focus:ring-green-400 m-4"
                     onClick={() => {
                         console.log(searchText);
                         const filteredRestaurant = listOfRestaurants.filter((res) =>
@@ -69,7 +71,7 @@ const Body = () => {
                     </button>
                 </div>
                 <div className="search m-4 p-4 flex items-center">
-                <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick= 
+                <button className="px-4 py-2 bg-pink-500 rounded-lg hover:bg-opacity-20 transition-transform transform hover:scale-105 text-white" onClick= 
                 {()=> {
                     const filteredList = listOfRestaurants.filter((res) => 
                         res.info.avgRating>4.3)
@@ -80,11 +82,18 @@ const Body = () => {
                 </button>
                 </div>
 
-                <div className="search m-4 p-4 flex items-center">
-                    <label>UserName : </label>
-                    <input className="border border-black p-2" 
-                    value={loggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
-                </div>
+                <div className="search m-4 p-4 flex items-center space-x-2">
+                    <label className="font-semibold">UserName:</label>
+                    <input className="border border-black p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={loggedInUser} 
+                    onChange={(e) => { if (e.target.value.length <= 20) {
+                        setUserName(e.target.value);
+                        }   
+                    }}
+                    maxLength={20} 
+                    placeholder="Enter your username"/>
+            </div>
+
             </div>
             <div className="flex flex-wrap justify-center gap-6">
                 {

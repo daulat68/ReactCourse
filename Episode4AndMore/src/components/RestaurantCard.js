@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
-import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { loggedInUser } = useContext(UserContext);
 
   const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla} = resData?.info;
 

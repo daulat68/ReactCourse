@@ -6,7 +6,7 @@ const AboutUs = () => {
   const { loggedInUser } = useContext(UserContext);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
       <div className="w-full text-center bg-white p-8 rounded-lg shadow-md">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
         

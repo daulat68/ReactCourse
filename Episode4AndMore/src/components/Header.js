@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <>
       {/* ✅ Fixed Header with Shadow */}
-      <header className="fixed top-0 left-0 w-full bg-pink-100 shadow-lg z-50">
+      <header className="fixed top-0 left-0 w-full bg-pink-200 shadow-lg z-50">
         <div className="flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <div className="flex items-center">
@@ -63,7 +63,7 @@ const Header = () => {
               </li>
               <li className="font-bold">
                 <Link to="/cart" className="hover:text-pink-500 transition-all">
-                  Cart ({cartItems.length})
+                🛒({cartItems.length})
                 </Link>
               </li>
               <button
@@ -74,7 +74,7 @@ const Header = () => {
               >
                 {btnNameReact}
               </button>
-              <li className="font-bold text-gray-800">{loggedInUser}</li>
+              <li className="text-lg font-semibold bg-white text-blue-600 px-3 py-1 rounded-lg shadow-md">{loggedInUser}</li>
             </ul>
           </nav>
         </div>
